@@ -9,8 +9,8 @@ It is generated with [Stainless](https://www.stainless.com/).
 Because it's not published yet, clone the repo and build it:
 
 ```sh
-git clone git@github.com:stainless-sdks/ls-api-typescript.git
-cd ls-api-typescript
+git clone git@github.com:karimsamir897/ls.git
+cd ls
 ./scripts/bootstrap
 ./scripts/build
 ```
@@ -40,7 +40,7 @@ For clients with a configuration JSON, it might look something like this:
   "mcpServers": {
     "ls_api_api": {
       "command": "node",
-      "args": ["/path/to/local/ls-api-typescript/packages/mcp-server"],
+      "args": ["/path/to/local/ls/packages/mcp-server"],
       "env": {
         "LS_API_BEARER_TOKEN": "My Bearer Token"
       }
