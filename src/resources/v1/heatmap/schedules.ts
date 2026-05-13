@@ -9,7 +9,13 @@ import { path } from '../../../internal/utils/path';
  *
  * Create and manage automated heatmap schedules. Schedules run heatmaps on a recurring interval (weekly, monthly, or custom).
  */
-export class Schedules extends APIResource {
+export class BaseSchedules extends APIResource {
+  static override readonly _key: readonly ['v1', 'heatmap', 'schedules'] = Object.freeze([
+    'v1',
+    'heatmap',
+    'schedules',
+  ] as const);
+
   /**
    * Creates a new automated heatmap schedule. The schedule will run heatmaps on the
    * specified recurrence.
@@ -172,6 +178,11 @@ export class Schedules extends APIResource {
     return this._client.post(path`/api/v1/heatmap/schedules/${scheduleID}/resume`, options);
   }
 }
+/**
+ *
+ * Create and manage automated heatmap schedules. Schedules run heatmaps on a recurring interval (weekly, monthly, or custom).
+ */
+export class Schedules extends BaseSchedules {}
 
 export interface ScheduleCreateResponse {
   id?: number;

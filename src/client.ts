@@ -107,9 +107,9 @@ export interface ClientOptions {
 }
 
 /**
- * API Client for interfacing with the Ls API API.
+ * Base class for Ls API API clients.
  */
-export class LsAPI {
+export class BaseLsAPI {
   bearerToken: string;
 
   baseURL: string;
@@ -154,7 +154,7 @@ export class LsAPI {
     };
 
     this.baseURL = options.baseURL!;
-    this.timeout = options.timeout ?? LsAPI.DEFAULT_TIMEOUT /* 1 minute */;
+    this.timeout = options.timeout ?? BaseLsAPI.DEFAULT_TIMEOUT /* 1 minute */;
     this.logger = options.logger ?? console;
     const defaultLogLevel = 'warn';
     // Set default logLevel early so that we can log a warning in parseLogLevel.
@@ -718,8 +718,14 @@ export class LsAPI {
     }
   }
 
-  static LsAPI = this;
   static DEFAULT_TIMEOUT = 60000; // 1 minute
+}
+
+/**
+ * API Client for interfacing with the Ls API API.
+ */
+export class LsAPI extends BaseLsAPI {
+  static LsAPI = this;
 
   static LsAPIError = Errors.LsAPIError;
   static APIError = Errors.APIError;

@@ -2,6 +2,7 @@
 
 export {
   Heatmap,
+  BaseHeatmap,
   type HeatmapCreateResponse,
   type HeatmapRetrieveResponse,
   type HeatmapListResponse,
@@ -14,5 +15,5 @@ export {
   type HeatmapRerunParams,
   type HeatmapRetrievePlacesParams,
 } from './heatmap/index';
-export { Share } from './share/index';
-export { V1 } from './v1';
+export { Share, BaseShare } from './share/index';
+export { V1, BaseV1 } from './v1';

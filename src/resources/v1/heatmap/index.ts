@@ -2,12 +2,14 @@
 
 export {
   Competitors,
+  BaseCompetitors,
   type CompetitorListResponse,
   type CompetitorRetrieveRankingsResponse,
   type CompetitorRetrieveRankingsParams,
 } from './competitors';
 export {
   Configs,
+  BaseConfigs,
   type ConfigCreateResponse,
   type ConfigRetrieveResponse,
   type ConfigListResponse,
@@ -17,6 +19,7 @@ export {
 } from './configs';
 export {
   Grids,
+  BaseGrids,
   type GridCreateResponse,
   type GridRetrieveResponse,
   type GridListResponse,
@@ -26,6 +29,7 @@ export {
 } from './grids';
 export {
   Heatmap,
+  BaseHeatmap,
   type HeatmapCreateResponse,
   type HeatmapRetrieveResponse,
   type HeatmapListResponse,
@@ -38,9 +42,10 @@ export {
   type HeatmapRerunParams,
   type HeatmapRetrievePlacesParams,
 } from './heatmap';
-export { Keyword } from './keyword/index';
+export { Keyword, BaseKeyword } from './keyword/index';
 export {
   Schedules,
+  BaseSchedules,
   type ScheduleCreateResponse,
   type ScheduleRetrieveResponse,
   type ScheduleUpdateResponse,
