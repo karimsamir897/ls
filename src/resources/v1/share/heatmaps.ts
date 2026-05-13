@@ -9,7 +9,13 @@ import { path } from '../../../internal/utils/path';
  *
  * Create, retrieve, re-run and delete heatmaps. A heatmap represents a geographic grid search for a keyword at a given location.
  */
-export class Heatmaps extends APIResource {
+export class BaseHeatmaps extends APIResource {
+  static override readonly _key: readonly ['v1', 'share', 'heatmaps'] = Object.freeze([
+    'v1',
+    'share',
+    'heatmaps',
+  ] as const);
+
   /**
    * Returns heatmap details for a publicly shared link. The token must match the
    * heatmap's share token.
@@ -34,6 +40,11 @@ export class Heatmaps extends APIResource {
     });
   }
 }
+/**
+ *
+ * Create, retrieve, re-run and delete heatmaps. A heatmap represents a geographic grid search for a keyword at a given location.
+ */
+export class Heatmaps extends BaseHeatmaps {}
 
 export interface HeatmapRetrieveResponse {
   heatmap_settings?: HeatmapRetrieveResponse.HeatmapSettings;

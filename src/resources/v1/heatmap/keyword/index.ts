@@ -1,8 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export { Keyword } from './keyword';
+export { Keyword, BaseKeyword } from './keyword';
 export {
   Lists,
+  BaseLists,
   type ListCreateResponse,
   type ListRetrieveResponse,
   type ListUpdateResponse,

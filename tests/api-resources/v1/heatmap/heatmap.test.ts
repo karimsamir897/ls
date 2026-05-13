@@ -1,13 +1,29 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { V1 } from 'ls-api-mcp/resources/v1/v1';
+import { BaseHeatmap } from 'ls-api-mcp/resources/v1/heatmap/heatmap';
+
 import LsAPI from 'ls-api-mcp';
+import { createClient, type PartialLsAPI } from 'ls-api-mcp/tree-shakable';
 
 const client = new LsAPI({
   bearerToken: 'My Bearer Token',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource heatmap', () => {
+const partialClient = createClient({
+  bearerToken: 'My Bearer Token',
+  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+  resources: [BaseHeatmap],
+});
+
+const parentPartialClient = createClient({
+  bearerToken: 'My Bearer Token',
+  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+  resources: [V1],
+});
+
+const runTests = (client: PartialLsAPI<{ v1: { heatmap: BaseHeatmap } }>) => {
   // Mock server tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.v1.heatmap.create({
@@ -164,4 +180,7 @@ describe('resource heatmap', () => {
       ),
     ).rejects.toThrow(LsAPI.NotFoundError);
   });
-});
+};
+describe('resource heatmap', () => runTests(client));
+describe('resource heatmap (tree shakable, base)', () => runTests(partialClient));
+describe('resource heatmap (tree shakable, subresource)', () => runTests(parentPartialClient));

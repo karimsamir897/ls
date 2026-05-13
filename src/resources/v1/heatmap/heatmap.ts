@@ -3,6 +3,7 @@
 import { APIResource } from '../../../core/resource';
 import * as CompetitorsAPI from './competitors';
 import {
+  BaseCompetitors,
   CompetitorListResponse,
   CompetitorRetrieveRankingsParams,
   CompetitorRetrieveRankingsResponse,
@@ -10,6 +11,7 @@ import {
 } from './competitors';
 import * as ConfigsAPI from './configs';
 import {
+  BaseConfigs,
   ConfigCreateParams,
   ConfigCreateResponse,
   ConfigDeleteResponse,
@@ -20,6 +22,7 @@ import {
 } from './configs';
 import * as GridsAPI from './grids';
 import {
+  BaseGrids,
   GridCreateParams,
   GridCreateResponse,
   GridDeleteResponse,
@@ -30,6 +33,7 @@ import {
 } from './grids';
 import * as SchedulesAPI from './schedules';
 import {
+  BaseSchedules,
   ScheduleCreateParams,
   ScheduleCreateResponse,
   ScheduleDeleteBulkDeleteParams,
@@ -45,7 +49,7 @@ import {
   Schedules,
 } from './schedules';
 import * as KeywordAPI from './keyword/keyword';
-import { Keyword } from './keyword/keyword';
+import { BaseKeyword, Keyword } from './keyword/keyword';
 import { APIPromise } from '../../../core/api-promise';
 import { RequestOptions } from '../../../internal/request-options';
 import { path } from '../../../internal/utils/path';
@@ -54,12 +58,8 @@ import { path } from '../../../internal/utils/path';
  *
  * Create, retrieve, re-run and delete heatmaps. A heatmap represents a geographic grid search for a keyword at a given location.
  */
-export class Heatmap extends APIResource {
-  configs: ConfigsAPI.Configs = new ConfigsAPI.Configs(this._client);
-  grids: GridsAPI.Grids = new GridsAPI.Grids(this._client);
-  keyword: KeywordAPI.Keyword = new KeywordAPI.Keyword(this._client);
-  schedules: SchedulesAPI.Schedules = new SchedulesAPI.Schedules(this._client);
-  competitors: CompetitorsAPI.Competitors = new CompetitorsAPI.Competitors(this._client);
+export class BaseHeatmap extends APIResource {
+  static override readonly _key: readonly ['v1', 'heatmap'] = Object.freeze(['v1', 'heatmap'] as const);
 
   /**
    * Creates one or more heatmaps. Each combination of keyword × search_type
@@ -197,6 +197,17 @@ export class Heatmap extends APIResource {
   ): APIPromise<HeatmapRetrievePlacesResponse> {
     return this._client.get('/api/v1/heatmaps/places', { query, ...options });
   }
+}
+/**
+ *
+ * Create, retrieve, re-run and delete heatmaps. A heatmap represents a geographic grid search for a keyword at a given location.
+ */
+export class Heatmap extends BaseHeatmap {
+  configs: ConfigsAPI.Configs = new ConfigsAPI.Configs(this._client);
+  grids: GridsAPI.Grids = new GridsAPI.Grids(this._client);
+  keyword: KeywordAPI.Keyword = new KeywordAPI.Keyword(this._client);
+  schedules: SchedulesAPI.Schedules = new SchedulesAPI.Schedules(this._client);
+  competitors: CompetitorsAPI.Competitors = new CompetitorsAPI.Competitors(this._client);
 }
 
 export interface HeatmapCreateResponse {
@@ -815,10 +826,15 @@ export interface HeatmapRetrievePlacesParams {
 }
 
 Heatmap.Configs = Configs;
+Heatmap.BaseConfigs = BaseConfigs;
 Heatmap.Grids = Grids;
+Heatmap.BaseGrids = BaseGrids;
 Heatmap.Keyword = Keyword;
+Heatmap.BaseKeyword = BaseKeyword;
 Heatmap.Schedules = Schedules;
+Heatmap.BaseSchedules = BaseSchedules;
 Heatmap.Competitors = Competitors;
+Heatmap.BaseCompetitors = BaseCompetitors;
 
 export declare namespace Heatmap {
   export {
@@ -837,6 +853,7 @@ export declare namespace Heatmap {
 
   export {
     Configs as Configs,
+    BaseConfigs as BaseConfigs,
     type ConfigCreateResponse as ConfigCreateResponse,
     type ConfigRetrieveResponse as ConfigRetrieveResponse,
     type ConfigListResponse as ConfigListResponse,
@@ -847,6 +864,7 @@ export declare namespace Heatmap {
 
   export {
     Grids as Grids,
+    BaseGrids as BaseGrids,
     type GridCreateResponse as GridCreateResponse,
     type GridRetrieveResponse as GridRetrieveResponse,
     type GridListResponse as GridListResponse,
@@ -855,10 +873,11 @@ export declare namespace Heatmap {
     type GridListParams as GridListParams,
   };
 
-  export { Keyword as Keyword };
+  export { Keyword as Keyword, BaseKeyword as BaseKeyword };
 
   export {
     Schedules as Schedules,
+    BaseSchedules as BaseSchedules,
     type ScheduleCreateResponse as ScheduleCreateResponse,
     type ScheduleRetrieveResponse as ScheduleRetrieveResponse,
     type ScheduleUpdateResponse as ScheduleUpdateResponse,
@@ -875,6 +894,7 @@ export declare namespace Heatmap {
 
   export {
     Competitors as Competitors,
+    BaseCompetitors as BaseCompetitors,
     type CompetitorListResponse as CompetitorListResponse,
     type CompetitorRetrieveRankingsResponse as CompetitorRetrieveRankingsResponse,
     type CompetitorRetrieveRankingsParams as CompetitorRetrieveRankingsParams,

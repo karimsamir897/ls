@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.0 (2026-05-13)
+
+Full Changelog: [v0.3.1...v0.4.0](https://github.com/karimsamir897/ls/compare/v0.3.1...v0.4.0)
+
+### Features
+
+* **api:** manual updates ([4aa327e](https://github.com/karimsamir897/ls/commit/4aa327ec78957c548cc145cf1b2e91eb28d2c301))
+* **api:** manual updates ([26c095c](https://github.com/karimsamir897/ls/commit/26c095c58ef6abef32d4c9e548aa098ecd155702))
+
 ## 0.3.1 (2026-05-13)
 
 Full Changelog: [v0.3.0...v0.3.1](https://github.com/karimsamir897/ls/compare/v0.3.0...v0.3.1)

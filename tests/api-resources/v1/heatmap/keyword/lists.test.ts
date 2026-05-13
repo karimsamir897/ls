@@ -1,13 +1,29 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { Keyword } from 'ls-api-mcp/resources/v1/heatmap/keyword/keyword';
+import { BaseLists } from 'ls-api-mcp/resources/v1/heatmap/keyword/lists';
+
 import LsAPI from 'ls-api-mcp';
+import { createClient, type PartialLsAPI } from 'ls-api-mcp/tree-shakable';
 
 const client = new LsAPI({
   bearerToken: 'My Bearer Token',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource lists', () => {
+const partialClient = createClient({
+  bearerToken: 'My Bearer Token',
+  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+  resources: [BaseLists],
+});
+
+const parentPartialClient = createClient({
+  bearerToken: 'My Bearer Token',
+  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+  resources: [Keyword],
+});
+
+const runTests = (client: PartialLsAPI<{ v1: { heatmap: { keyword: { lists: BaseLists } } } }>) => {
   // Mock server tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.v1.heatmap.keyword.lists.create({ name: 'Roofing Keywords' });
@@ -127,4 +143,7 @@ describe('resource lists', () => {
   test.skip('deleteAll: required and optional params', async () => {
     const response = await client.v1.heatmap.keyword.lists.deleteAll({ ids: [5, 6, 7] });
   });
-});
+};
+describe('resource lists', () => runTests(client));
+describe('resource lists (tree shakable, base)', () => runTests(partialClient));
+describe('resource lists (tree shakable, subresource)', () => runTests(parentPartialClient));

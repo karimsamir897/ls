@@ -1,6 +1,6 @@
 # Ls API TypeScript API Library
 
-[![NPM version](<https://img.shields.io/npm/v/ls-api-mcp.svg?label=npm%20(stable)>)](https://npmjs.org/package/ls-api-mcp) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/ls-api-mcp)
+[![NPM version](<https://img.shields.io/npm/v/ls-api-mcp.svg?label=npm%20(stable)>)](https://npmjs.org/package/ls-api-mcp) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/ls-api-mcp) [![JSR Version](https://jsr.io/badges/ls-api-mcp/ls-api-mcp)](https://jsr.io/ls-api-mcp/ls-api-mcp)
 
 This library provides convenient access to the Ls API REST API from server-side TypeScript or JavaScript.
 
@@ -21,6 +21,21 @@ Use the Ls API MCP Server to enable AI assistants to interact with this API, all
 
 ```sh
 npm install ls-api-mcp
+```
+
+### Installation from JSR
+
+```sh
+deno add jsr:ls-api-mcp/ls-api-mcp
+npx jsr add ls-api-mcp/ls-api-mcp
+```
+
+These commands will make the module importable from the `ls-api-mcp/ls-api-mcp` scope:
+
+You can also [import directly from JSR](https://jsr.io/docs/using-packages#importing-with-jsr-specifiers) without an install step if you're using the Deno JavaScript runtime:
+
+```ts
+import LsAPI from 'jsr:ls-api-mcp/ls-api-mcp';
 ```
 
 ## Usage
@@ -319,7 +334,7 @@ const client = new LsAPI({
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/deno.svg" align="top" width="18" height="21"> **Deno** <sup>[[docs](https://docs.deno.com/api/deno/~/Deno.createHttpClient)]</sup>
 
 ```ts
-import LsAPI from 'npm:ls-api-mcp';
+import LsAPI from 'jsr:ls-api-mcp/ls-api-mcp';
 
 const httpClient = Deno.createHttpClient({ proxy: { url: 'http://localhost:8888' } });
 const client = new LsAPI({

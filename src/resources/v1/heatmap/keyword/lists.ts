@@ -9,7 +9,14 @@ import { path } from '../../../../internal/utils/path';
  *
  * Manage saved keyword lists that can be reused across multiple heatmap runs.
  */
-export class Lists extends APIResource {
+export class BaseLists extends APIResource {
+  static override readonly _key: readonly ['v1', 'heatmap', 'keyword', 'lists'] = Object.freeze([
+    'v1',
+    'heatmap',
+    'keyword',
+    'lists',
+  ] as const);
+
   /**
    * Creates a new keyword list with an optional initial set of keywords.
    *
@@ -121,6 +128,11 @@ export class Lists extends APIResource {
     return this._client.delete('/api/v1/heatmap/keyword/lists', { body, ...options });
   }
 }
+/**
+ *
+ * Manage saved keyword lists that can be reused across multiple heatmap runs.
+ */
+export class Lists extends BaseLists {}
 
 export interface ListCreateResponse {
   id?: number;

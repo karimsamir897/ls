@@ -9,7 +9,13 @@ import { path } from '../../../internal/utils/path';
  *
  * Create, retrieve, re-run and delete heatmaps. A heatmap represents a geographic grid search for a keyword at a given location.
  */
-export class Competitors extends APIResource {
+export class BaseCompetitors extends APIResource {
+  static override readonly _key: readonly ['v1', 'heatmap', 'competitors'] = Object.freeze([
+    'v1',
+    'heatmap',
+    'competitors',
+  ] as const);
+
   /**
    * Returns aggregated ranking statistics for all competitor businesses found across
    * the grid points of the specified heatmap.
@@ -47,6 +53,11 @@ export class Competitors extends APIResource {
     );
   }
 }
+/**
+ *
+ * Create, retrieve, re-run and delete heatmaps. A heatmap represents a geographic grid search for a keyword at a given location.
+ */
+export class Competitors extends BaseCompetitors {}
 
 export interface CompetitorListResponse {
   data?: Array<CompetitorListResponse.Data>;

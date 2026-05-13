@@ -4,7 +4,7 @@ export { LsAPI as default } from './client';
 
 export { type Uploadable, toFile } from './core/uploads';
 export { APIPromise } from './core/api-promise';
-export { LsAPI, type ClientOptions } from './client';
+export { BaseLsAPI, LsAPI, type ClientOptions } from './client';
 export {
   LsAPIError,
   APIError,
