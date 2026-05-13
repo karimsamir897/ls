@@ -1,6 +1,6 @@
 {
   "name": "ls-api-mcp",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "The official MCP Server for the Ls API API",
   "author": "Ls API <>",
   "types": "dist/index.d.ts",
