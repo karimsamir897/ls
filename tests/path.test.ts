@@ -1,4 +1,4 @@
-import { createPathTagFunction, encodeURIPath } from 'ls-api/internal/utils/path';
+import { createPathTagFunction, encodeURIPath } from 'ls-api-mcp/internal/utils/path';
 import { inspect } from 'node:util';
 import { runInNewContext } from 'node:vm';
 

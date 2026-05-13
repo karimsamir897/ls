@@ -1,5 +1,5 @@
 {
-  "name": "ls-api",
+  "name": "ls-api-mcp",
   "version": "0.3.0",
   "description": "The official TypeScript library for the Ls API API",
   "author": "Ls API <>",

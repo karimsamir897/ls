@@ -8,8 +8,8 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "paths": {
-      "ls-api/*": ["./src/*"],
-      "ls-api": ["./src/index.ts"]
+      "ls-api-mcp/*": ["./src/*"],
+      "ls-api-mcp": ["./src/index.ts"]
     },
     "noEmit": true,
 

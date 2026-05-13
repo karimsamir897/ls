@@ -8,7 +8,7 @@ import { makeOAuthConsent } from './app';
 import { McpAgent } from 'agents/mcp';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import OAuthProvider from '@cloudflare/workers-oauth-provider';
-import { ClientOptions } from 'ls-api';
+import { ClientOptions } from 'ls-api-mcp';
 import { McpOptions } from 'ls-api-mcp/options';
 import { initMcpServer, newMcpServer } from 'ls-api-mcp/server';
 import { configureLogger } from 'ls-api-mcp/logger';
@@ -50,7 +50,7 @@ const INSTRUCTIONS_FETCH_TIMEOUT_MS = 5000;
 
 function fallbackMcpServer(): McpServer {
   return new McpServer(
-    { name: 'ls_api_api', version: '0.1.0' },
+    { name: 'ls_api_mcp_api', version: '0.1.0' },
     { capabilities: { tools: {}, logging: {} } },
   );
 }

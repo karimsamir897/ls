@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { ClientOptions } from 'ls-api';
+import { ClientOptions } from 'ls-api-mcp';
 
 export type WorkerInput = {
   project_name: string;
