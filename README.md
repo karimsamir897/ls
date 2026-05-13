@@ -20,11 +20,8 @@ Use the Ls API MCP Server to enable AI assistants to interact with this API, all
 ## Installation
 
 ```sh
-npm install git+ssh://git@github.com:karimsamir897/ls.git
+npm install ls-api
 ```
-
-> [!NOTE]
-> Once this package is [published to npm](https://www.stainless.com/docs/guides/publish), this will become: `npm install ls-api`
 
 ## Usage
 
