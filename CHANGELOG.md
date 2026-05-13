@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.1 (2026-05-13)
+
+Full Changelog: [v0.3.0...v0.3.1](https://github.com/karimsamir897/ls/compare/v0.3.0...v0.3.1)
+
+### Chores
+
+* update SDK settings ([ac05fa2](https://github.com/karimsamir897/ls/commit/ac05fa2d4a8b3890b0e2d3396289092a61e07e3c))
+
 ## 0.3.0 (2026-05-13)
 
 Full Changelog: [v0.2.0...v0.3.0](https://github.com/karimsamir897/ls/compare/v0.2.0...v0.3.0)
