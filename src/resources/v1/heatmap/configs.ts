@@ -9,7 +9,13 @@ import { path } from '../../../internal/utils/path';
  *
  * Manage saved heatmap configurations (grid size, radius, distance unit) that can be reapplied when creating new heatmaps.
  */
-export class Configs extends APIResource {
+export class BaseConfigs extends APIResource {
+  static override readonly _key: readonly ['v1', 'heatmap', 'configs'] = Object.freeze([
+    'v1',
+    'heatmap',
+    'configs',
+  ] as const);
+
   /**
    * Saves a new heatmap grid configuration that can be reapplied when creating
    * future heatmaps.
@@ -70,6 +76,11 @@ export class Configs extends APIResource {
     return this._client.delete(path`/api/v1/heatmap/configs/${configID}`, options);
   }
 }
+/**
+ *
+ * Manage saved heatmap configurations (grid size, radius, distance unit) that can be reapplied when creating new heatmaps.
+ */
+export class Configs extends BaseConfigs {}
 
 export interface ConfigCreateResponse {
   id?: number;

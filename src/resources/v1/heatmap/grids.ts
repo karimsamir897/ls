@@ -9,7 +9,13 @@ import { path } from '../../../internal/utils/path';
  *
  * Manage reusable grid templates that define the shape and point layout for heatmap searches.
  */
-export class Grids extends APIResource {
+export class BaseGrids extends APIResource {
+  static override readonly _key: readonly ['v1', 'heatmap', 'grids'] = Object.freeze([
+    'v1',
+    'heatmap',
+    'grids',
+  ] as const);
+
   /**
    * Saves a new reusable grid template that can be applied to future heatmap runs.
    *
@@ -69,6 +75,11 @@ export class Grids extends APIResource {
     return this._client.delete(path`/api/v1/heatmap/grids/${gridID}`, options);
   }
 }
+/**
+ *
+ * Manage reusable grid templates that define the shape and point layout for heatmap searches.
+ */
+export class Grids extends BaseGrids {}
 
 export interface GridCreateResponse {
   id?: number;

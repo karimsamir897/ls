@@ -1,13 +1,29 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { BaseConfigs } from 'ls-api-mcp/resources/v1/heatmap/configs';
+import { Heatmap } from 'ls-api-mcp/resources/v1/heatmap/heatmap';
+
 import LsAPI from 'ls-api-mcp';
+import { createClient, type PartialLsAPI } from 'ls-api-mcp/tree-shakable';
 
 const client = new LsAPI({
   bearerToken: 'My Bearer Token',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource configs', () => {
+const partialClient = createClient({
+  bearerToken: 'My Bearer Token',
+  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+  resources: [BaseConfigs],
+});
+
+const parentPartialClient = createClient({
+  bearerToken: 'My Bearer Token',
+  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+  resources: [Heatmap],
+});
+
+const runTests = (client: PartialLsAPI<{ v1: { heatmap: { configs: BaseConfigs } } }>) => {
   // Mock server tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.v1.heatmap.configs.create({
@@ -94,4 +110,7 @@ describe('resource configs', () => {
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
   });
-});
+};
+describe('resource configs', () => runTests(client));
+describe('resource configs (tree shakable, base)', () => runTests(partialClient));
+describe('resource configs (tree shakable, subresource)', () => runTests(parentPartialClient));

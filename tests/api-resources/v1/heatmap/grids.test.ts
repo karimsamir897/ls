@@ -1,13 +1,29 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
+import { BaseGrids } from 'ls-api-mcp/resources/v1/heatmap/grids';
+import { Heatmap } from 'ls-api-mcp/resources/v1/heatmap/heatmap';
+
 import LsAPI from 'ls-api-mcp';
+import { createClient, type PartialLsAPI } from 'ls-api-mcp/tree-shakable';
 
 const client = new LsAPI({
   bearerToken: 'My Bearer Token',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource grids', () => {
+const partialClient = createClient({
+  bearerToken: 'My Bearer Token',
+  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+  resources: [BaseGrids],
+});
+
+const parentPartialClient = createClient({
+  bearerToken: 'My Bearer Token',
+  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+  resources: [Heatmap],
+});
+
+const runTests = (client: PartialLsAPI<{ v1: { heatmap: { grids: BaseGrids } } }>) => {
   // Mock server tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.v1.heatmap.grids.create({
@@ -94,4 +110,7 @@ describe('resource grids', () => {
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
   });
-});
+};
+describe('resource grids', () => runTests(client));
+describe('resource grids (tree shakable, base)', () => runTests(partialClient));
+describe('resource grids (tree shakable, subresource)', () => runTests(parentPartialClient));
