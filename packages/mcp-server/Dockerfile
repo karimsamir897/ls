@@ -59,8 +59,8 @@ WORKDIR /app
 # Copy the build results, preserving directory structure
 COPY --from=builder /build .
 
-# Copy the built ls-api into node_modules
-COPY --from=builder /build/dist ./node_modules/ls-api
+# Copy the built ls-api-mcp into node_modules
+COPY --from=builder /build/dist ./node_modules/ls-api-mcp
 
 # Change ownership to nodejs user
 RUN chown -R nodejs:nodejs /app

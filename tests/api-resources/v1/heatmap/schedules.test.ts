@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import LsAPI from 'ls-api';
+import LsAPI from 'ls-api-mcp';
 
 const client = new LsAPI({
   bearerToken: 'My Bearer Token',

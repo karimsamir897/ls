@@ -55,12 +55,12 @@ $ cd ls
 # With yarn
 $ yarn link
 $ cd ../my-package
-$ yarn link ls-api
+$ yarn link ls-api-mcp
 
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link --global ls-api
+$ pnpm link --global ls-api-mcp
 ```
 
 ## Running tests

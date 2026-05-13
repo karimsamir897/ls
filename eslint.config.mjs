@@ -22,7 +22,7 @@ export default tseslint.config(
         {
           patterns: [
             {
-              regex: '^ls-api(/.*)?',
+              regex: '^ls-api-mcp(/.*)?',
               message: 'Use a relative import, not a package import.',
             },
           ],

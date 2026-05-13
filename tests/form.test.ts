@@ -1,5 +1,5 @@
-import { multipartFormRequestOptions, createForm } from 'ls-api/internal/uploads';
-import { toFile } from 'ls-api/core/uploads';
+import { multipartFormRequestOptions, createForm } from 'ls-api-mcp/internal/uploads';
+import { toFile } from 'ls-api-mcp/core/uploads';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {

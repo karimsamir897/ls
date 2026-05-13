@@ -39,7 +39,7 @@ Open the file in your text editor and replace it with this configuration:
 ```json
 {
   "mcpServers": {
-    "ls_api_api": {
+    "ls_api_mcp_api": {
       "command": "npx",
       "args": ["mcp-remote", "http://localhost:8787/sse"]
     }
@@ -76,7 +76,7 @@ Update the Claude configuration file to point to your `workers.dev` URL (ex: `wo
 ```json
 {
   "mcpServers": {
-    "ls_api_api": {
+    "ls_api_mcp_api": {
       "command": "npx",
       "args": ["mcp-remote", "https://worker-name.account-name.workers.dev/sse"]
     }
