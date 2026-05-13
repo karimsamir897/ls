@@ -50,7 +50,7 @@ const INSTRUCTIONS_FETCH_TIMEOUT_MS = 5000;
 
 function fallbackMcpServer(): McpServer {
   return new McpServer(
-    { name: 'ls_api_api', version: '0.2.0' },
+    { name: 'ls_api_api', version: '0.3.0' },
     { capabilities: { tools: {}, logging: {} } },
   );
 }
