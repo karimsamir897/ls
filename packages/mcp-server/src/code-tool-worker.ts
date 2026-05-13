@@ -5,7 +5,7 @@ import util from 'node:util';
 import Fuse from 'fuse.js';
 import ts from 'typescript';
 import { WorkerOutput } from './code-tool-types';
-import { LsAPI, ClientOptions } from 'ls-api';
+import { LsAPI, ClientOptions } from 'ls-api-mcp';
 
 async function tseval(code: string) {
   return import('data:application/typescript;charset=utf-8;base64,' + Buffer.from(code).toString('base64'));
@@ -57,7 +57,7 @@ function getRunFunctionSource(code: string): {
 function getTSDiagnostics(code: string): string[] {
   const functionSource = getRunFunctionSource(code)!;
   const codeWithImport = [
-    'import { LsAPI } from "ls-api";',
+    'import { LsAPI } from "ls-api-mcp";',
     functionSource.type === 'declaration' ?
       `async function run(${functionSource.client}: LsAPI)`
     : `const run: (${functionSource.client}: LsAPI) => Promise<unknown> =`,

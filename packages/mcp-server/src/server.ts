@@ -7,8 +7,8 @@ import {
   ListToolsRequestSchema,
   SetLevelRequestSchema,
 } from '@modelcontextprotocol/sdk/types.js';
-import { ClientOptions } from 'ls-api';
-import LsAPI from 'ls-api';
+import { ClientOptions } from 'ls-api-mcp';
+import LsAPI from 'ls-api-mcp';
 import { codeTool } from './code-tool';
 import docsSearchTool from './docs-search-tool';
 import { setLocalSearch } from './docs-search-tool';
@@ -27,7 +27,7 @@ export const newMcpServer = async ({
 }) =>
   new McpServer(
     {
-      name: 'ls_api_api',
+      name: 'ls_api_mcp_api',
       version: '0.3.0',
     },
     {

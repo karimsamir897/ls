@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIPromise } from 'ls-api/core/api-promise';
+import { APIPromise } from 'ls-api-mcp/core/api-promise';
 
 import util from 'node:util';
-import LsAPI from 'ls-api';
-import { APIUserAbortError } from 'ls-api';
+import LsAPI from 'ls-api-mcp';
+import { APIUserAbortError } from 'ls-api-mcp';
 const defaultFetch = fetch;
 
 describe('instantiate client', () => {
