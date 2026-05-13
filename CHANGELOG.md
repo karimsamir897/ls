@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.2.0 (2026-05-13)
+
+Full Changelog: [v0.1.0...v0.2.0](https://github.com/karimsamir897/ls/compare/v0.1.0...v0.2.0)
+
+### Features
+
+* **api:** manual updates 2 ([13129f6](https://github.com/karimsamir897/ls/commit/13129f64337c5f1900deb1ee08f660b46ffe08d2))
+* **api:** manual updates 6 ([75940bb](https://github.com/karimsamir897/ls/commit/75940bbf87ef574e9280d5c37c13fce65d2d0582))
+
+
+### Chores
+
+* update SDK settings ([7d31203](https://github.com/karimsamir897/ls/commit/7d31203d2853fcc6a05d734731fec7b7ecdb28b8))
+* update SDK settings ([cbcdd0f](https://github.com/karimsamir897/ls/commit/cbcdd0fad63228740f61621ad9ab538a42f5dc46))
+
 ## 0.1.0 (2026-05-13)
 
 Full Changelog: [v0.0.1...v0.1.0](https://github.com/karimsamir897/ls/compare/v0.0.1...v0.1.0)
